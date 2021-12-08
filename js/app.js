@@ -48,4 +48,9 @@ function render() {
   }
 }
 
-html.searchbarForm.addEventListener('submit', () => getMovies(html.searchbar.value))
+function handleSubmit(e) {
+  e.preventDefault();
+  getMovies(html.searchbar.value);
+}
+
+html.searchbarForm.addEventListener('submit', handleSubmit)
