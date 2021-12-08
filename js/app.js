@@ -22,7 +22,27 @@ const getMovies = (query) => {
       .then(movieDetail => searchResults.push(movieDetail));
     });
   })
-  .then(console.log('render search results'))
+  .then(render())
 }
 
 getMovies('fight')
+
+function render() {
+  html.moviesContainer.innerHTML = "";
+  for (let result of searchResults) {
+    html.moviesContainer.insertAdjacentHTML('afterbegin', `
+    <div class="movie">
+      <img
+        src="${result.Poster}"
+      />
+      <div class="overlay">
+        <div class="title">${result.Title}</div>
+        <div class="rating">${result.imdbRating}/10</div>
+        <div class="plot">
+         ${result.Plot}
+        </div>
+      </div>
+    </div>
+    `)
+  }
+}
