@@ -19,13 +19,14 @@ const getMovies = (query) => {
     movieData.Search.forEach((movie) => {
       fetch(`http://www.omdbapi.com/?apikey=${apiKey}&i=${movie.imdbID}`)
       .then(response => response.json())
-      .then(movieDetail => searchResults.push(movieDetail));
+      .then(movieDetail => searchResults.push(movieDetail))
     });
   })
-  .then(render())
+  .then(setTimeout(() => {render()}, 1500));
 }
 
 getMovies('fight')
+render()
 
 function render() {
   html.moviesContainer.innerHTML = "";
