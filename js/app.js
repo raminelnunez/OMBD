@@ -4,6 +4,12 @@
 //type=movie
 //i=imdbID
 
+const html = {
+  movies: document.getElementsByClassName('movie'),
+  searchbar: document.getElementById('searchbar'),
+  moviesContainer: document.getElementsByClassName('titles-wrapper')[0]
+}
+
 const apiKey = '69b4829f';
 const searchResults = [];
 const getMovies = (query) => {
