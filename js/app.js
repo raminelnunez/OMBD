@@ -12,8 +12,9 @@ const html = {
 }
 
 const apiKey = '69b4829f';
-const searchResults = [];
+let searchResults = [];
 const getMovies = (query) => {
+  searchResults = [];
   return fetch(`http://www.omdbapi.com/?apikey=${apiKey}&s=${query}`)
   .then((response) => response.json())
   .then((movieData) => {
