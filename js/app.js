@@ -6,6 +6,7 @@
 
 const html = {
   movies: document.getElementsByClassName('movie'),
+  searchbarForm: document.getElementById('search'),
   searchbar: document.getElementById('searchbar'),
   moviesContainer: document.getElementsByClassName('titles-wrapper')[0]
 }
@@ -25,7 +26,6 @@ const getMovies = (query) => {
   .then(setTimeout(() => {render()}, 1500));
 }
 
-getMovies('fight')
 render()
 
 function render() {
@@ -47,3 +47,5 @@ function render() {
     `)
   }
 }
+
+html.searchbarForm.addEventListener('submit', () => getMovies(html.searchbar.value))
